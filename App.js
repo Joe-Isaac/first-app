@@ -4,19 +4,41 @@ import { View, Button, Text, StyleSheet } from 'react-native';
 import react from 'react';
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(0);
+  const [style, setStyle] = useState('Basic style test');
 
   const sisi = () => {
-    setCount(count + 1);
-    setIncrement(increment + 5);
+    setStyle("StyleTest Updated");
   }
   
   return (
     <View style={styles.home}>
-      <Text style={styles.text}>{increment}</Text>
-      <Button onPress={sisi}style={styles.button} title="My button"></Button>
-      <Text style={styles.text}>You clicked {count} times</Text>
+      <View style={styles.viewMain}>
+        <View style={styles}>
+        <Text style={styles.text}>{style}</Text>
+        </View>
+        <View style={styles}>
+        <Text style={styles.text}>{style}</Text>
+        </View>
+        <View style={styles}>
+        <Text style={styles.text}>{style}</Text>
+        </View>
+      </View>
+      <View style={styles.viewSecond}>
+        <View style={styles}>
+        <Text style={styles.text}>{style}</Text>
+        </View>
+        <View style={styles}>
+        <Text style={styles.text}>{style}</Text>
+        </View>
+      </View>
+      <View style={styles.viewThird}>
+          <View style={styles.view1}>
+          <Text style={styles.text}>{style}</Text>
+          </View>
+          <View style={styles.view1}>
+          <Text style={styles.text}>{style}</Text>
+          </View>
+      </View>
     </View>
   );
 }
@@ -24,21 +46,47 @@ const App = () => {
 const styles = StyleSheet.create({
   home: {
     flex: 1,
-    backgroundColor: "blue",
     alignItems: "center",
     justifyContent: "center",
+    borderWidth: 5,
+    borderRadius: 10,
   },
-  button: {
-    color: "white",
 
+  view1: {
+    width: 100,
+    height: 100,
+    backgroundColor: "grey",
   },
-  content: {
-    fontStyle: 'italic',
+  view2: {
+    width: 100,
+    height: 100,
+    backgroundColor: "purple",
   },
+  view3: {
+    width: 100,
+    height: 100,
+    backgroundColor: "gold",
+  },
+
+  viewMain: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    backgroundColor: 'grey',
+  },
+
+  viewSecond: {
+    flexDirection: 'column',
+    
+  },
+
+  viewThird: {
+    flexDirection: 'row',
+    
+  },
+
   text: {
-    fontSize: 18,
-    color: "#fff",
-    fontStyle: 'italic',
+    fontSize: 16,
+    color: "#000",
   }
 });
 
