@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {useState, UseEffect} from 'react';
+import { View, Button, Text, StyleSheet } from 'react-native';
+import react from 'react';
 
-export default function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [increment, setIncrement] = useState(0);
+
+  const sisi = () => {
+    setCount(count + 1);
+    setIncrement(increment + 5);
+  }
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.home}>
+      <Text style={styles.text}>{increment}</Text>
+      <Button onPress={sisi}style={styles.button} title="My button"></Button>
+      <Text style={styles.text}>You clicked {count} times</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  home: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "blue",
+    alignItems: "center",
+    justifyContent: "center",
   },
+  button: {
+    color: "white",
+
+  },
+  content: {
+    fontStyle: 'italic',
+  },
+  text: {
+    fontSize: 18,
+    color: "#fff",
+    fontStyle: 'italic',
+  }
 });
+
+export default App;
